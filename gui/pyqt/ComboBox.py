@@ -3,18 +3,26 @@ import sys
 from PyQt5.QtWidgets import *
 
 
-class Window(QMainWindow):
+class Window(QWidget):
     def __init__(self):
         super(Window, self).__init__()
         self.setWindowTitle("ComboBox")
-        combo = QComboBox()
-        combo.setWhatsThis("<b>This is <i>comboBox</i></b>")
-        self.setCentralWidget(combo)
         self.setGeometry(50, 50, 500, 300)
+        layout = QGridLayout()
+        self.setLayout(layout)
+        self.combo = QComboBox()
+        items = ["Sudan", "USA", "UK", "India", "Egypt", "Russia"]
+        line = QLineEdit()
+        self.combo.setEditable(True)
+        self.combo.setLineEdit(line)
+        self.combo.addItems(items)
+        self.combo.setWhatsThis("<b>This is <i>comboBox</i></b>")
+        self.combo.currentTextChanged.connect(self.text_changed)
+        layout.addWidget(self.combo, 0, 0)
 
-    def on_click(self):
-        sender = self.sender()
-        print(f"{sender.text()} is clicked")
+    def text_changed(self):
+        text = self.combo.currentText()
+        print(f"Your Country: {text}")
 
 
 app = QApplication(sys.argv)
