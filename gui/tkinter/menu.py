@@ -1,17 +1,15 @@
-import gui.tkinter as tk
-from gui.tkinter import ttk
+import tkinter as tk
 
 
-class App:
-
-    __root = tk.Tk()
+class App(tk.Tk):
 
     def __init__(self):
+        super(App, self).__init__()
         self.__config()
     
-    def __createmenu(self):
+    def __create_menu(self):
         # MenuBar
-        menu_bar = tk.Menu(self.__root)
+        menu_bar = tk.Menu(self)
 
         # File Menu
         file_menu = tk.Menu(menu_bar, tearoff=False)
@@ -51,10 +49,10 @@ class App:
         return menu_bar
     
     def __config(self):
-        self.__root.config(menu=self.__createmenu())
+        self.config(menu=self.__create_menu())
     
     def run(self):
-        self.__root.mainloop()
+        self.mainloop()
 
 
 def main():
