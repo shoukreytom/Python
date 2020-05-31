@@ -1,3 +1,4 @@
+# script for throwing system notifications using notify2 lib
 import notify2
 
 
