@@ -2,16 +2,28 @@ import sys
 import parser
 
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
 
 
 class Window(QWidget):
     def __init__(self):
         super(Window, self).__init__()
-        self.setWindowTitle("Calculator")
+        self.setWindowTitle("Style")
+        self.setStyleSheet("QPushButton {min-width: 5em;min-height: 2em}")
         layout = QGridLayout()
+        screen_font = QFont()
+        buttons_font = QFont()
+        screen_font.setFamily("MonoSpace")
+        screen_font.setPointSize(18)
+        screen_font.setBold(True)
+        buttons_font.setFamily("MonoSpace")
+        buttons_font.setPointSize(16)
+        buttons_font.setBold(True)
         self.screen = QLineEdit()
+        self.screen.setFont(screen_font)
         self.screen.setReadOnly(True)
         self.screen.setMaxLength(40)
+        self.screen.setStyleSheet("min-height: 3em")
 
         one = QPushButton("1")
         tow = QPushButton("2")
@@ -23,6 +35,11 @@ class Window(QWidget):
         three.clicked.connect(self.get_text)
         multi.clicked.connect(self.get_text)
         undo.clicked.connect(self.undo)
+        one.setFont(buttons_font)
+        tow.setFont(buttons_font)
+        three.setFont(buttons_font)
+        multi.setFont(buttons_font)
+        undo.setFont(buttons_font)
 
         four = QPushButton("4")
         five = QPushButton("5")
@@ -34,6 +51,11 @@ class Window(QWidget):
         six.clicked.connect(self.get_text)
         minus.clicked.connect(self.get_text)
         power.clicked.connect(self.get_text)
+        four.setFont(buttons_font)
+        five.setFont(buttons_font)
+        six.setFont(buttons_font)
+        minus.setFont(buttons_font)
+        power.setFont(buttons_font)
 
         seven = QPushButton("7")
         eight = QPushButton("8")
@@ -45,6 +67,11 @@ class Window(QWidget):
         nine.clicked.connect(self.get_text)
         div.clicked.connect(self.get_text)
         # fac.clicked.connect(self.get_text)
+        seven.setFont(buttons_font)
+        eight.setFont(buttons_font)
+        nine.setFont(buttons_font)
+        div.setFont(buttons_font)
+        fac.setFont(buttons_font)
 
         decimal = QPushButton(".")
         zero = QPushButton("0")
@@ -56,6 +83,11 @@ class Window(QWidget):
         equal.clicked.connect(self.equal)
         plus.clicked.connect(self.get_text)
         clear.clicked.connect(self.clear)
+        decimal.setFont(buttons_font)
+        zero.setFont(buttons_font)
+        equal.setFont(buttons_font)
+        plus.setFont(buttons_font)
+        clear.setFont(buttons_font)
 
         # first row
         layout.addWidget(self.screen, 0, 0, 1, 5)
@@ -114,8 +146,17 @@ class Window(QWidget):
             self.screen.setText("Error")
 
 
+""" window styles on QT:
+        1- Fusion
+        2- Windows
+        3- Adwaita-Dark
+        4- Adwaita
+    this is for linux(fedora)
+"""
+
+
 app = QApplication(sys.argv)
-app.setStyle("Windows")
+app.setStyle('Windows')
 
 
 def main():
