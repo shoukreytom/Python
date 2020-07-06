@@ -1,6 +1,6 @@
-# learningprogress
+# Python
 
-  is a private repository for us just to each others progress.
+  this is a repository for learning by doing and sharing knowledge
 
 ## notes:
   - anyone has it's own branch or create your own. so work just on your branch and if you any
