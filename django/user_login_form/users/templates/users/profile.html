@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div class="container">
+		<img class="rounded-circle" src="{{ user.profile.image.url }}" width="200" height="200" alt="profile picture"/>
+		<h3 class="text-muted">{{ user.username }}</h3>
+		<h4 class="text-muted">{{ user.email }}</h4>
+	</div>
+
+{% endblock %}
