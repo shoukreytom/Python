@@ -1,4 +1,9 @@
-.*
-!/.gitignore
 *.png
+
+# database files
 *.db
+*.sqlite3
+*.sql
+
+*.env
+__pycache__/
