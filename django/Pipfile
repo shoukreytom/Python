@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
+social-auth-app-django = "*"
+python-decouple = "*"
 
 [dev-packages]
 
